@@ -126,7 +126,7 @@ def page(file, title, desc, body, active=None):
 <meta property="og:image" content="__SITE_URL__/hero-its.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/style.css?v=4">
 {LDJSON if file == 'index.html' else ''}
 </head>
 <body>
@@ -136,7 +136,7 @@ def page(file, title, desc, body, active=None):
 {body}
 </main>
 {FOOTER}
-<script src="assets/main.js?v=3" defer></script>
+<script src="assets/main.js?v=4" defer></script>
 </body>
 </html>
 '''

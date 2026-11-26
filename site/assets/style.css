@@ -291,3 +291,5 @@ footer.site{background:linear-gradient(160deg,#0b1f4d 0%,#071533 100%)}
 }
 .hero-bg img{object-position:right center}
 .why .card:nth-child(1) .badge{background:var(--blue)!important;color:#fff!important}.why .card:nth-child(3) .badge{background:var(--green)!important;color:#fff!important}.why .card:nth-child(2) .badge,.why .card:nth-child(4) .badge{color:#fff!important}.why .card:nth-child(2) .badge{background:var(--violet)!important}.why .card:nth-child(4) .badge{background:var(--orange)!important}
+.hero-bg:after{background:linear-gradient(90deg,#eaf2ff 0%,rgba(234,242,255,.94) 22%,rgba(234,242,255,.6) 38%,rgba(234,242,255,0) 55%)}
+.hero-xl .hero-txt{max-width:600px}
