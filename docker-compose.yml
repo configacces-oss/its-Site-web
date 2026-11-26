@@ -1,0 +1,29 @@
+# Informatique Team Services — hébergement sur NAS Synology (Container Manager)
+services:
+  site:
+    image: nginx:alpine
+    container_name: its-site
+    restart: unless-stopped
+    env_file: .env
+    entrypoint: ["/bin/sh", "/its/start.sh"]
+    volumes:
+      - ./site:/site:ro
+      - ./docker/start.sh:/its/start.sh:ro
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8086:80"   # test en local : http://IP-DU-NAS:8086
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: its-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - site

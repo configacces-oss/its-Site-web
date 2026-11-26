@@ -1,10 +1,11 @@
 # Informatique Team Services — site web
 
-Site vitrine statique (HTML/CSS/JS, sans build) hébergé sur Netlify : https://informatique-team-services.netlify.app
+Site vitrine statique (HTML/CSS/JS, sans build), auto-hébergé sur NAS Synology via Docker + Cloudflare Tunnel.
 
-- `index.html` — page d'accueil (services Entreprises / Particuliers, formation, méthode, réalisations, FAQ, formulaire de devis)
-- `merci.html` — page de confirmation après envoi du formulaire
-- `mentions-legales.html` — mentions légales & RGPD (champs `[À COMPLÉTER]`)
-- Formulaire de devis : Netlify Forms (`name="devis"`), visible dans Netlify > Forms
+- `site/` — les pages du site (`index.html`, `merci.html`, `mentions-legales.html`, `404.html`, images, robots/sitemap)
+- `docker-compose.yml` — nginx (`its-site`) + Cloudflare Tunnel (`its-tunnel`)
+- `docker/` — config nginx et script de démarrage (injecte `SITE_URL` et `WEB3FORMS_KEY` depuis `.env`)
+- `.env.example` — modèle de configuration (copier en `.env`, jamais commité)
+- Formulaire de devis : Web3Forms (envoi par email)
 
-Déploiement : glisser le dossier dans Netlify, ou lier le dépôt (publish directory = racine).
+Installation pas à pas : voir [DEPLOIEMENT-NAS.md](DEPLOIEMENT-NAS.md).

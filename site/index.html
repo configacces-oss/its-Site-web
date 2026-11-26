@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ITS — Informatique Team Services | Formation, IA, sites web & assistance informatique</title>
 <meta name="description" content="Informatique Team Services (ITS) : formations informatique et IA, sites web, CRM, agents IA, automatisation et assistance informatique pour entreprises et particuliers en Île-de-France et à distance. Devis gratuit.">
-<link rel="canonical" href="https://informatique-team-services.netlify.app/">
+<link rel="canonical" href="__SITE_URL__/">
 <meta name="theme-color" content="#0b2545">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="Informatique Team Services">
 <meta property="og:title" content="ITS — Formation, IA & solutions digitales">
 <meta property="og:description" content="Formations IA et outils numériques, sites web, CRM, automatisation et assistance informatique. Devis gratuit sous 24 h.">
-<meta property="og:url" content="https://informatique-team-services.netlify.app/">
-<meta property="og:image" content="https://informatique-team-services.netlify.app/hero-formation.jpg">
+<meta property="og:url" content="__SITE_URL__/">
+<meta property="og:image" content="__SITE_URL__/hero-formation.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +26,9 @@
  "@type":"ProfessionalService",
  "name":"Informatique Team Services",
  "alternateName":"ITS",
- "url":"https://informatique-team-services.netlify.app/",
- "logo":"https://informatique-team-services.netlify.app/logo-its.png",
- "image":"https://informatique-team-services.netlify.app/hero-formation.jpg",
+ "url":"__SITE_URL__/",
+ "logo":"__SITE_URL__/logo-its.png",
+ "image":"__SITE_URL__/hero-formation.jpg",
  "telephone":"+33695607875",
  "email":"assistance@itservices75.fr",
  "areaServed":[{"@type":"AdministrativeArea","name":"Île-de-France"},{"@type":"Country","name":"France"}],
@@ -510,9 +510,12 @@ footer a:hover{color:#ffb08c}
    <a class="btn btn-white" href="tel:+33695607875"><svg class="ic"><use href="#i-phone"/></svg>Appeler maintenant</a>
   </div>
 
-  <form class="devis" name="devis" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field">
-   <input type="hidden" name="form-name" value="devis">
-   <p class="hp"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+  <form class="devis" id="form-devis" method="POST" action="https://api.web3forms.com/submit">
+   <input type="hidden" name="access_key" value="__WEB3FORMS_KEY__">
+   <input type="hidden" name="subject" value="Nouvelle demande de devis — site ITS">
+   <input type="hidden" name="from_name" value="Site Informatique Team Services">
+   <input type="hidden" name="redirect" value="__SITE_URL__/merci.html">
+   <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
    <div class="fgrid">
     <div class="field full">
      <label>Vous êtes <span class="req">*</span></label>
@@ -542,7 +545,7 @@ footer a:hover{color:#ffb08c}
     <div class="field full"><label class="consent"><input type="checkbox" name="consentement" value="oui" required> <span>J’accepte que mes données soient utilisées pour traiter ma demande, conformément à la <a href="mentions-legales.html#donnees">politique de confidentialité</a>.</span></label></div>
    </div>
    <div class="form-foot">
-    <small>Réponse sous 24 h · Sans engagement</small>
+    <small id="form-status" role="status">Réponse sous 24 h · Sans engagement</small>
     <button class="btn btn-orange" type="submit">Envoyer ma demande<svg class="ic"><use href="#i-arrow"/></svg></button>
    </div>
   </form>
@@ -615,6 +618,16 @@ footer a:hover{color:#ffb08c}
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+en.target.id)});}})},{rootMargin:'-45% 0px -50% 0px'});
   links.forEach(function(l){var s=document.querySelector(l.getAttribute('href'));if(s)io.observe(s)});
  }
+ // Envoi du formulaire (Web3Forms)
+ var form=document.getElementById('form-devis'),status=document.getElementById('form-status');
+ form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=form.querySelector('button[type=submit]');btn.disabled=true;btn.style.opacity=.7;status.textContent='Envoi en cours…';status.style.color='';
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+   .then(function(r){return r.json()})
+   .then(function(d){if(d.success){window.location.href='merci.html';}else{throw new Error(d.message)}})
+   .catch(function(){btn.disabled=false;btn.style.opacity='';status.style.color='#c2410c';status.innerHTML='Envoi impossible pour le moment. Appelez-nous au <a href="tel:+33695607875">06 95 60 78 75</a>.';});
+ });
  document.getElementById('y').textContent=new Date().getFullYear();
 })();
 </script>
