@@ -6,12 +6,10 @@ Aucun port à ouvrir sur la box, IP du NAS jamais exposée, certificat HTTPS aut
 ## Prérequis
 - DSM 7.2+ avec **Container Manager** installé (Centre de paquets)
 - Un nom de domaine (ex. `itservices75.fr`) dont les DNS sont gérés par **Cloudflare** (compte gratuit)
-- Une clé **Web3Forms** (gratuite) pour recevoir les demandes de devis par email
 
-## 1. Clé Web3Forms (2 min)
-1. Aller sur https://web3forms.com → « Create your Access Key »
-2. Saisir l'email qui doit **recevoir** les demandes (ex. `assistance@itservices75.fr`)
-3. Copier la clé reçue par email
+## 1. Formulaire de devis (FormSubmit)
+Le formulaire envoie les demandes à `assistance@itservices75.fr` via FormSubmit (aucune clé requise).
+À la **première** demande envoyée depuis le site, FormSubmit envoie un email d'activation à cette adresse : cliquer sur « Activate Form ».
 
 ## 2. Domaine sur Cloudflare (si pas déjà fait)
 1. https://dash.cloudflare.com → **Add a domain** → `itservices75.fr` → plan Free
@@ -46,7 +44,6 @@ its-site/
 Créer `.env` (copie de `.env.example`) et remplir :
 ```
 SITE_URL=https://www.itservices75.fr
-WEB3FORMS_KEY=votre-cle-web3forms
 CLOUDFLARE_TUNNEL_TOKEN=votre-jeton-cloudflare
 ```
 
@@ -74,5 +71,5 @@ Remplacer les fichiers du dossier `site/` dans File Station, puis Container Mana
 |---|---|
 | Tunnel « DOWN » | Jeton mal copié dans `.env` (espaces, retour à la ligne) |
 | Erreur 502 | URL du Public Hostname différente de `site:80` |
-| Formulaire « Envoi impossible » | `WEB3FORMS_KEY` vide ou erronée → corriger `.env` puis redémarrer |
+| Formulaire : pas d'email reçu | Activer le formulaire via l'email FormSubmit reçu sur assistance@itservices75.fr |
 | Port 8086 déjà utilisé | Changer `8086:80` dans `docker-compose.yml` (ou supprimer la ligne, le tunnel n'en a pas besoin) |
