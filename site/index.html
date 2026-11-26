@@ -3,209 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ITS — Informatique Team Services | Formation & Solutions digitales</title>
-<meta name="description" content="ITS accompagne les entreprises en formation informatique, intelligence artificielle, sites web, CRM, automatisation et e-commerce.">
-<style>
-:root{
- --navy:#0b2545;--blue:#0877c9;--orange:#ff5a16;--orange2:#ff7a32;
- --bg:#f1f3f5;--white:#fff;--muted:#64748b;--line:#e5e9ef;
- --shadow:0 14px 40px rgba(11,37,69,.09);--radius:18px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--navy)}
-a{text-decoration:none;color:inherit}
-.container{width:min(1240px,92%);margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid #edf0f3}
-.header-inner{height:78px;display:flex;align-items:center;gap:28px}
-.brand img{width:250px;height:58px;object-fit:contain;object-position:left center;mix-blend-mode:multiply}
-nav{display:flex;gap:23px;align-items:center;margin-left:auto;font-size:14px;font-weight:700}
-nav a{padding:29px 0 24px;position:relative}
-nav a.active,nav a:hover{color:var(--orange)}
-nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:17px;height:3px;background:var(--orange);border-radius:5px}
-.header-contact{display:flex;align-items:center;gap:16px;font-weight:800;white-space:nowrap}
-.phone{color:var(--navy)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:12px;font-weight:800;border:1px solid transparent;transition:.2s;cursor:pointer}
-.btn-orange{background:var(--orange);color:white;box-shadow:0 8px 20px rgba(255,90,22,.2)}
-.btn-orange:hover{background:#e94d0d;transform:translateY(-1px)}
-.btn-outline{background:#fff;border-color:#183452;color:#183452}
-.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
-.hero{min-height:525px;background:#eef1f4;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#f2f4f6 0%,#f2f4f6 43%,rgba(242,244,246,.65) 56%,rgba(242,244,246,0) 72%)}
-.hero-grid{position:relative;z-index:2;min-height:525px;display:grid;grid-template-columns:48% 52%;align-items:center}
-.hero-copy{padding:55px 0}
-.kicker{display:inline-block;padding:8px 14px;background:#fff0e9;color:var(--orange);font-size:13px;font-weight:900;border-radius:99px;margin-bottom:18px}
-h1{font-size:54px;line-height:1.03;letter-spacing:-2.3px;margin:0 0 20px}
-.orange{color:var(--orange)}
-.lead{font-size:18px;line-height:1.55;color:#42536b;max-width:610px}
-.checks{display:flex;gap:18px;flex-wrap:wrap;margin:23px 0 27px;font-size:14px;font-weight:800}
-.checks span:before{content:"✓";display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#ffe8dc;color:var(--orange);margin-right:7px}
-.actions{display:flex;gap:13px;flex-wrap:wrap}
-.hero-photo{height:525px;background-image:url("hero-formation.jpg");background-size:cover;background-position:center;border-radius:32px 0 0 32px;box-shadow:-18px 0 40px rgba(11,37,69,.08)}
-.hero-bubble{position:absolute;right:3%;top:80px;background:#fff;border-radius:18px;padding:18px 22px;box-shadow:var(--shadow);font-weight:800;line-height:1.65}
-.hero-bubble b{color:var(--orange)}
-.hero-dots{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);display:flex;gap:7px}
-.hero-dots i{display:block;width:9px;height:9px;border-radius:99px;background:#c8d0d9}.hero-dots i:first-child{width:28px;background:var(--orange)}
-.section{padding:55px 0;background:#fff}
-.section.alt{background:var(--bg)}
-.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:24px}
-.section-head h2{font-size:31px;margin:0 0 6px}.section-head p{margin:0;color:var(--muted)}
-.link-orange{color:var(--orange);font-weight:800}
-.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px;min-height:188px;box-shadow:0 5px 18px rgba(11,37,69,.035);transition:.2s}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.card:first-child{border:2px solid var(--orange)}
-.card .ico{font-size:29px;margin-bottom:14px}.card h3{font-size:17px;margin:0 0 8px}.card p{font-size:13px;color:var(--muted);line-height:1.45;margin:0}
-.stats{background:var(--navy);color:white;padding:24px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
-.stat{text-align:center;border-right:1px solid rgba(255,255,255,.2)}.stat:last-child{border:0}.stat strong{display:block;font-size:26px}.stat span{font-size:13px;color:#d4deea}
-.projects{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.project{background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-.project .thumb{height:105px;background:linear-gradient(135deg,#e8eef5,#d7e0ea);display:grid;place-items:center;font-size:35px}
-.project .txt{padding:12px}.project strong{font-size:13px;display:block}.project span{font-size:11px;color:var(--muted)}
-.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
-.why,.cta{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
-.why h2,.cta h2{margin:0 0 17px}
-.reasons{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.reason{background:#f8fafc;border-radius:13px;padding:17px 10px;text-align:center;font-size:12px;font-weight:800}
-.reason b{display:block;font-size:23px;margin-bottom:8px;color:var(--blue)}
-.cta{background:linear-gradient(115deg,#fff,#ffe6d9)}
-.cta p{color:#42536b;line-height:1.5;max-width:480px}
-footer{background:#071c34;color:#d8e3ee;padding:40px 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}
-footer h3{color:white;margin-top:0}footer p,footer li{font-size:13px;line-height:1.7;color:#b9c8d8}
-footer ul{list-style:none;padding:0;margin:0}
-.copyright{border-top:1px solid rgba(255,255,255,.12);margin-top:25px;padding-top:18px;font-size:12px;color:#9eb0c2}
-.mobile-menu{display:none}
-@media(max-width:1100px){
- nav{display:none}.mobile-menu{display:block;margin-left:auto;font-size:24px}
- .header-contact .phone{display:none}.cards{grid-template-columns:repeat(3,1fr)}.projects{grid-template-columns:repeat(3,1fr)}
- .hero-grid{grid-template-columns:1fr}.hero-photo{display:none}.hero:before{background:#f2f4f6}.hero-copy{padding:65px 0}
- .stats-grid{grid-template-columns:repeat(3,1fr)}.stat:nth-child(3){border:0}.footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:650px){
- .brand img{width:190px;height:55px}.header-inner{height:68px}.header-contact .btn{padding:11px 13px;font-size:12px}
- h1{font-size:39px;letter-spacing:-1.3px}.lead{font-size:16px}.hero-copy{padding:45px 0}.checks{display:block}.checks span{display:block;margin:9px 0}
- .cards{grid-template-columns:1fr 1fr}.projects{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.stat{border:0}
- .bottom-grid{grid-template-columns:1fr}.reasons{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}
- .section{padding:42px 0}.section-head{display:block}.section-head .link-orange{display:block;margin-top:12px}
-}
-</style>
+<title>ITS — Informatique Team Services | Formation, Automatisation, CRM & Assistance informatique</title>
+<meta name="description" content="Formation professionnelle (IA, ChatGPT, bureautique, CRM), automatisation & IA (n8n, Make), conception de CRM sur mesure et assistance informatique. Présentiel, distanciel et e-learning, en France et en Algérie.">
+<link rel="canonical" href="__SITE_URL__/">
+<meta name="theme-color" content="#0b6cf0">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Informatique Team Services">
+<meta property="og:title" content="ITS — Informatique Team Services | Formation, Automatisation, CRM & Assistance informatique"><meta property="og:description" content="Formation professionnelle (IA, ChatGPT, bureautique, CRM), automatisation & IA (n8n, Make), conception de CRM sur mesure et assistance informatique. Présentiel, distanciel et e-learning, en France et en Algérie.">
+<meta property="og:url" content="__SITE_URL__/">
+<meta property="og:image" content="__SITE_URL__/hero-its.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Informatique Team Services","alternateName":"ITS","url":"__SITE_URL__/","logo":"__SITE_URL__/logo-its.png","image":"__SITE_URL__/hero-its.jpg","telephone":"+33695607875","email":"assistance@itservices75.fr","areaServed":[{"@type":"Country","name":"France"},{"@type":"Country","name":"Algérie"}],"description":"Formation professionnelle, automatisation et IA, conception de CRM et assistance informatique.","knowsAbout":["Formation IA","ChatGPT","Bureautique","CRM","Automatisation n8n","Make","Assistance informatique"]}</script>
 </head>
 <body>
-<header>
- <div class="container header-inner">
-  <a class="brand" href="#accueil"><img src="logo-its.jpg" alt="Informatique Team Services"></a>
-  <nav>
-   <a class="active" href="#accueil">Accueil</a>
-   <a href="#formation">Formation</a>
-   <a href="#services">Services</a>
-   <a href="#ia">Solutions IA</a>
-   <a href="#realisations">Réalisations</a>
-   <a href="#apropos">À propos</a>
-   <a href="#contact">Contact</a>
-  </nav>
-  <div class="header-contact">
-   <span class="phone">☎ 06 95 60 78 75</span>
-   <a class="btn btn-orange" href="#contact">Demander un devis →</a>
-  </div>
-  <div class="mobile-menu">☰</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/></symbol><symbol id="i-nodes" viewBox="0 0 24 24"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="12" cy="5" r="3"/><path d="M10.5 7.6 7.5 15.4M13.5 7.6l3 7.8M9 18h6"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></symbol><symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/><path d="M19 21a4 4 0 0 1-4 2h-2"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol><symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol><symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="11" rx="2"/><path d="M2 19h20"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="m10 8 5 2.5-5 2.5z"/><path d="M8 21h8M12 17v4"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol><symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-bot" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="3"/><path d="M12 8V4M8 4h8M9 14h.01M15 14h.01"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol><symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.6a10 10 0 0 1 14 0M1.4 9a15 15 0 0 1 21.2 0M8.5 16.1a5 5 0 0 1 7 0M12 20h.01"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/></symbol><symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3a2 2 0 0 0 1.4.3L22 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol></defs></svg>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="site">
+ <div class="container hdr">
+  <a class="brand" href="index.html" aria-label="Informatique Team Services — accueil"><img src="logo-its.png" alt="Informatique Team Services — ITS" width="236" height="62"></a>
+  <nav class="main" aria-label="Navigation principale"><a href="index.html" class="active" aria-current="page">Accueil</a><a href="formations.html">Formations</a><div class="dd"><button aria-expanded="false" aria-haspopup="true">Solutions <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button><div class="dd-menu"><a href="solutions.html#automatisation"><svg class="ic" aria-hidden="true"><use href="#i-nodes"/></svg><span><strong>Automatisation & IA</strong><small>Workflows, agents IA, chatbots</small></span></a><a href="solutions.html#crm"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg><span><strong>Conception de CRM</strong><small>Clients, devis, facturation, suivi</small></span></a><a href="solutions.html#web"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg><span><strong>Sites web & outils</strong><small>Sites vitrines, espaces clients</small></span></a></div></div><a href="services.html">Services</a><a href="a-propos.html">À propos</a><a href="contact.html">Contact</a></nav>
+  <a class="btn btn-blue" href="contact.html">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></a>
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
  </div>
+ <div class="drawer" id="drawer"><a href="index.html">Accueil</a><a href="formations.html">Formations</a><a href="solutions.html">Solutions</a><a class="sub" href="solutions.html#automatisation">Automatisation & IA</a><a class="sub" href="solutions.html#crm">Conception de CRM</a><a class="sub" href="solutions.html#web">Sites web & outils</a><a href="services.html">Services</a><a href="a-propos.html">À propos</a><a href="contact.html">Contact</a><a class="btn btn-blue" href="contact.html">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></a></div>
 </header>
-
-<main>
-<section class="hero" id="accueil">
- <div class="container hero-grid">
-  <div class="hero-copy">
-   <span class="kicker">VOTRE PARTENAIRE FORMATION</span>
-   <h1><span class="orange">Formez</span> vos équipes<br>aux outils d’aujourd’hui</h1>
-   <p class="lead">Des formations pratiques en informatique, IA et outils numériques pour développer les compétences de votre entreprise.</p>
-   <div class="checks">
-    <span>Formations sur mesure</span><span>En présentiel ou à distance</span><span>Suivi personnalisé</span>
-   </div>
-   <div class="actions">
-    <a class="btn btn-orange" href="#formation">🎓 Découvrir nos formations →</a>
-    <a class="btn btn-outline" href="#realisations">▶ Voir la présentation</a>
-   </div>
-  </div>
-  <div class="hero-photo"></div>
+<main id="main">
+<section class="hero"><div class="container hero-grid">
+ <div>
+  <div class="eyebrow">Votre partenaire digital</div>
+  <h1>Formation, Automatisation, Conception de <span class="blue">CRM</span> &amp; Assistance Informatique</h1>
+  <p class="lead">Nous vous accompagnons pour développer vos compétences, automatiser vos processus, concevoir vos solutions CRM sur mesure et assurer le bon fonctionnement de votre informatique.</p>
+  <div class="actions"><a class="btn btn-blue" href="formations.html"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg>Découvrir nos formations</a><a class="btn btn-line" href="solutions.html"><svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg>Nos solutions</a></div>
  </div>
- <div class="hero-bubble">🤖 <b>Intelligence Artificielle</b><br>⚙️ Automatisation<br>💻 Outils numériques</div>
- <div class="hero-dots"><i></i><i></i><i></i></div>
-</section>
+ <div class="hero-img"><img src="hero-its.jpg" alt="Ordinateur portable affichant la plateforme ITS : formation, automatisation & IA, CRM sur mesure et assistance IT" width="882" height="490" fetchpriority="high"></div>
+</div></section>
 
-<section class="section" id="formation">
- <div class="container">
-  <div class="section-head">
-   <div><h2>Nos principales prestations</h2><p>Des solutions complètes pour répondre aux besoins de votre entreprise</p></div>
-   <a class="link-orange" href="#services">Voir tous nos services →</a>
-  </div>
-  <div class="cards" id="services">
-   <article class="card"><div class="ico">🎓</div><h3>Formation</h3><p>Formations en informatique, IA et outils numériques.</p></article>
-   <article class="card"><div class="ico">🌐</div><h3>Sites web professionnels</h3><p>Sites vitrines, e-commerce et solutions sur mesure.</p></article>
-   <article class="card"><div class="ico">🗄️</div><h3>CRM & gestion client</h3><p>Suivi client, devis, facturation et espace client.</p></article>
-   <article class="card" id="ia"><div class="ico">🤖</div><h3>Agents IA</h3><p>Automatisation de vos tâches et assistants IA.</p></article>
-   <article class="card"><div class="ico">⚙️</div><h3>Automatisation</h3><p>Gagnez du temps avec des processus automatisés.</p></article>
-   <article class="card"><div class="ico">🛒</div><h3>E-commerce</h3><p>Boutiques en ligne performantes.</p></article>
-  </div>
- </div>
-</section>
+<section aria-label="Nos domaines"><div class="container services4"><a class="svc c-blue" href="formations.html"><div class="top"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><h3>Formation Professionnelle</h3></div><p>Développez vos compétences (IA, ChatGPT, bureautique, CRM, outils métiers…).</p><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="svc c-violet" href="solutions.html#automatisation"><div class="top"><svg class="ic" aria-hidden="true"><use href="#i-nodes"/></svg><h3>Automatisation & IA</h3></div><p>Gagnez du temps et de la productivité avec des workflows intelligents (n8n, Make, API, IA…).</p><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="svc c-green" href="solutions.html#crm"><div class="top"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg><h3>Conception de CRM</h3></div><p>Des solutions CRM sur mesure (gestion clients, devis, facturation, commandes, suivi d’activité…).</p><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><a class="svc c-orange" href="services.html"><div class="top"><svg class="ic" aria-hidden="true"><use href="#i-headset"/></svg><h3>Assistance Informatique</h3></div><p>Dépannage, installation, configuration, maintenance et accompagnement au quotidien.</p><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></div></section>
+<section aria-label="Nos atouts"><div class="container perks"><div class="perk"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>Entreprises<span>& indépendants</span></div><div class="perk"><svg class="ic" aria-hidden="true"><use href="#i-building"/></svg>Organismes<span>de formation</span></div><div class="perk"><svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg>Présentiel<span>& distanciel</span></div><div class="perk"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>E-learning<span>(à votre rythme)</span></div><div class="perk"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Solutions<span>sur mesure</span></div><div class="perk"><div class="flags"><svg viewBox="0 0 40 40" aria-label="France"><clipPath id="cf"><circle cx="20" cy="20" r="20"/></clipPath><g clip-path="url(#cf)"><rect width="14" height="40" fill="#1f4fbf"/><rect x="13" width="14" height="40" fill="#fff"/><rect x="26" width="14" height="40" fill="#e0262f"/></g></svg><svg viewBox="0 0 40 40" aria-label="Algérie"><clipPath id="cd"><circle cx="20" cy="20" r="20"/></clipPath><g clip-path="url(#cd)"><rect width="20" height="40" fill="#0b7d3e"/><rect x="20" width="20" height="40" fill="#fff"/><circle cx="21" cy="20" r="8" fill="#d21034"/><circle cx="23.2" cy="20" r="6.4" fill="#fff"/><path d="m26.5 16.6 1 2.6 2.8.1-2.2 1.7.8 2.7-2.4-1.6-2.3 1.6.8-2.7-2.2-1.7 2.8-.1z" fill="#d21034"/></g></svg></div>Intervention<span>France & Algérie</span></div></div></section>
 
-<section class="stats">
- <div class="container stats-grid">
-  <div class="stat"><strong>+100</strong><span>Projets réalisés</span></div>
-  <div class="stat"><strong>+50</strong><span>Clients accompagnés</span></div>
-  <div class="stat"><strong>5 ans+</strong><span>D’expérience</span></div>
-  <div class="stat"><strong>100%</strong><span>Accompagnement</span></div>
-  <div class="stat"><strong>Île-de-France</strong><span>et à distance</span></div>
+<section class="section alt"><div class="container">
+ <div class="head center"><div class="eyebrow">Pour qui ?</div><h2>Des solutions adaptées à chaque structure</h2><p>Que vous soyez une PME, un indépendant ou un organisme de formation, nous construisons avec vous la réponse adaptée à vos enjeux.</p></div>
+ <div class="grid3">
+  <div class="card"><div class="badge"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></div><h3>Entreprises & indépendants</h3><p>Montée en compétences des équipes, outils de gestion sur mesure et automatisation des tâches répétitives.</p><ul class="checks"><li>Formation intra-entreprise</li><li>CRM, devis et facturation</li><li>Automatisations et agents IA</li></ul></div>
+  <div class="card"><div class="badge"><svg class="ic" aria-hidden="true"><use href="#i-building"/></svg></div><h3>Organismes de formation</h3><p>Intervention de formateurs experts et outils pour digitaliser la gestion de vos sessions.</p><ul class="checks"><li>Animation de modules IA et numérique</li><li>Supports et parcours e-learning</li><li>Outils de suivi des apprenants</li></ul></div>
+  <div class="card"><div class="badge"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg></div><h3>Particuliers</h3><p>Un accompagnement simple et rassurant pour votre informatique du quotidien.</p><ul class="checks"><li>Dépannage et installation</li><li>Initiation à l’IA et au numérique</li><li>Assistance à distance</li></ul></div>
  </div>
-</section>
+</div></section>
 
-<section class="section alt" id="realisations">
- <div class="container">
-  <div class="section-head">
-   <div><h2>Quelques-unes de nos réalisations</h2><p>Des projets concrets pour des entreprises de différents secteurs</p></div>
-   <a class="link-orange" href="#contact">Voir toutes nos réalisations →</a>
-  </div>
-  <div class="projects">
-   <div class="project"><div class="thumb">🛍️</div><div class="txt"><strong>Site e-commerce</strong><span>Mode & accessoires</span></div></div>
-   <div class="project"><div class="thumb">🗂️</div><div class="txt"><strong>CRM sur mesure</strong><span>Gestion clientèle</span></div></div>
-   <div class="project"><div class="thumb">🍔</div><div class="txt"><strong>Site vitrine</strong><span>Restaurant</span></div></div>
-   <div class="project"><div class="thumb">📱</div><div class="txt"><strong>Application métier</strong><span>Suivi de production</span></div></div>
-   <div class="project"><div class="thumb">🖨️</div><div class="txt"><strong>Site vitrine</strong><span>Imprimerie numérique</span></div></div>
-   <div class="project"><div class="thumb">🔗</div><div class="txt"><strong>Automatisation IA</strong><span>Gestion des emails</span></div></div>
-  </div>
-  <div class="bottom-grid">
-   <div class="why" id="apropos">
-    <h2>Pourquoi choisir ITS ?</h2>
-    <div class="reasons">
-     <div class="reason"><b>◆</b>Expertise polyvalente</div>
-     <div class="reason"><b>⚙</b>Solutions sur mesure</div>
-     <div class="reason"><b>👥</b>Accompagnement humain</div>
-     <div class="reason"><b>▥</b>Résultats concrets</div>
-     <div class="reason"><b>✓</b>Fiabilité et sécurité</div>
-    </div>
-   </div>
-   <div class="cta" id="contact">
-    <h2><span class="orange">Un projet ? Parlons-en !</span></h2>
-    <p>Nous vous accompagnons pour définir la meilleure solution adaptée à vos besoins, de la formation au déploiement.</p>
-    <a class="btn btn-orange" href="mailto:assistance@itservices75.fr">✉ Demander un devis →</a>
-   </div>
-  </div>
+<section class="section"><div class="container split">
+ <div class="why">
+  <div class="card"><div class="badge"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg></div><h3>Pédagogie</h3><p>Organisme de formation déclaré, nous rendons vos équipes autonomes.</p></div>
+  <div class="card"><div class="badge" style="background:var(--violet-l);color:var(--violet)"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></div><h3>Technique</h3><p>Automatisations, IA et CRM conçus et mis en production par nos soins.</p></div>
+  <div class="card"><div class="badge" style="background:var(--green-l);color:var(--green)"><svg class="ic" aria-hidden="true"><use href="#i-handshake"/></svg></div><h3>Proximité</h3><p>Un interlocuteur unique qui explique sans jargon.</p></div>
+  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)"><svg class="ic" aria-hidden="true"><use href="#i-headset"/></svg></div><h3>Suivi</h3><p>Assistance et évolutions après la mise en service.</p></div>
  </div>
-</section>
+ <div>
+  <div class="eyebrow">Pourquoi ITS</div>
+  <h2 style="font-size:clamp(28px,3vw,38px)">Un interlocuteur unique, de la formation à la mise en production</h2>
+  <p class="lead">Nous réunissons la pédagogie d’un organisme de formation et le savoir-faire technique d’un intégrateur : vos équipes apprennent les outils que nous mettons en place pour elles.</p>
+  <ul class="checks"><li>Des solutions construites à partir de vos usages réels</li><li>Un accompagnement humain, sans jargon</li><li>Présentiel, distanciel ou e-learning, selon vos contraintes</li><li>Un suivi après la mise en service</li></ul>
+  <div class="actions"><a class="btn btn-blue" href="a-propos.html">En savoir plus <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+ </div>
+</div></section>
+
+<section class="section alt"><div class="container">
+ <div class="head center"><div class="eyebrow">Notre méthode</div><h2>Un accompagnement clair en 4 étapes</h2></div>
+ <div class="steps">
+  <div class="step"><h3>Diagnostic gratuit</h3><p>Nous échangeons sur vos besoins, vos outils et vos objectifs.</p></div>
+  <div class="step"><h3>Proposition sur mesure</h3><p>Programme de formation ou solution technique, avec un devis détaillé.</p></div>
+  <div class="step"><h3>Réalisation</h3><p>Formation, développement ou intervention, avec des points d’étape réguliers.</p></div>
+  <div class="step"><h3>Suivi & évolution</h3><p>Évaluation, ajustements et accompagnement dans la durée.</p></div>
+ </div>
+</div></section>
+<section class="section"><div class="container"><div class="cta">
+ <div><h2>Un projet, une formation, un besoin ?</h2><p>Parlez-nous de votre situation : nous vous répondons sous 24 h avec une proposition claire et sans engagement.</p></div>
+ <div class="actions"><a class="btn btn-white" href="contact.html">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></a><a class="btn btn-line" style="background:transparent;color:#fff;border-color:#fff" href="tel:+33695607875"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>06 95 60 78 75</a></div>
+</div></div></section>
 </main>
-
-<footer>
+<footer class="site">
  <div class="container">
-  <div class="footer-grid">
-   <div><h3>Informatique Team Services</h3><p>Formation, solutions digitales, IA, CRM, automatisation et accompagnement des entreprises.</p></div>
-   <div><h3>Navigation</h3><ul><li>Formation</li><li>Services</li><li>Réalisations</li></ul></div>
-   <div><h3>Solutions</h3><ul><li>Sites web</li><li>CRM</li><li>Agents IA</li><li>Automatisation</li></ul></div>
-   <div><h3>Contact</h3><p>06 95 60 78 75<br>assistance@itservices75.fr<br>Île-de-France & à distance</p></div>
+  <div class="fgrid4">
+   <div><span class="flogo"><img src="logo-its.png" alt="Informatique Team Services" width="175" height="46" loading="lazy"></span>
+    <p>Formation professionnelle, automatisation & IA, conception de CRM et assistance informatique pour les entreprises, les indépendants et les organismes de formation.</p></div>
+   <div><h4>Formations</h4><ul>
+    <li><a href="formations.html#ia">IA & ChatGPT</a></li><li><a href="formations.html#bureautique">Bureautique</a></li>
+    <li><a href="formations.html#crm">CRM & outils métiers</a></li><li><a href="formations.html#automatisation">Automatisation no-code</a></li></ul></div>
+   <div><h4>Solutions & services</h4><ul>
+    <li><a href="solutions.html#automatisation">Automatisation & IA</a></li><li><a href="solutions.html#crm">Conception de CRM</a></li>
+    <li><a href="solutions.html#web">Sites web</a></li><li><a href="services.html">Assistance informatique</a></li></ul></div>
+   <div><h4>Contact</h4><p><a href="tel:+33695607875">06 95 60 78 75</a><br><a href="mailto:assistance@itservices75.fr">assistance@itservices75.fr</a><br>Intervention France & Algérie<br>Présentiel et à distance</p></div>
   </div>
-  <div class="copyright">© 2026 Informatique Team Services — Tous droits réservés.</div>
+  <div class="copy"><span>© <span id="y">2026</span> Informatique Team Services — Tous droits réservés.</span><span><a href="a-propos.html">À propos</a> · <a href="mentions-legales.html">Mentions légales & confidentialité</a></span></div>
  </div>
 </footer>
+<div class="mbar"><a class="btn btn-line" href="tel:+33695607875"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Appeler</a><a class="btn btn-blue" href="contact.html">Demander un devis</a></div>
+<script src="assets/main.js" defer></script>
 </body>
 </html>
