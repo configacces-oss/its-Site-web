@@ -172,34 +172,37 @@ PERKS = [("users", "Entreprises", "& indépendants"), ("building", "Organismes",
          ("shield", "Solutions", "sur mesure"), ("FLAGS", "Intervention", "France & Algérie")]
 perks_html = "".join(f'<div class="perk">{FLAGS if i == "FLAGS" else ic(i)}{a}<span>{b}</span></div>' for i, a, b in PERKS)
 
-home = f'''<section class="hero"><div class="container hero-grid">
- <div>
+home = f'''<section class="hero hero-xl">
+ <div class="hero-bg" aria-hidden="true"><img src="hero-its-wide.jpg" alt="" width="902" height="489" fetchpriority="high"></div>
+ <div class="container hero-grid">
+ <div class="hero-txt">
   <div class="eyebrow">Votre partenaire digital</div>
   <h1>Formation, Automatisation, Conception de <span class="blue">CRM</span> &amp; Assistance Informatique</h1>
   <p class="lead">Nous vous accompagnons pour développer vos compétences, automatiser vos processus, concevoir vos solutions CRM sur mesure et assurer le bon fonctionnement de votre informatique.</p>
   <div class="actions"><a class="btn btn-blue" href="formations.html">{ic("cap")}Découvrir nos formations</a><a class="btn btn-line" href="solutions.html">{ic("gear")}Nos solutions</a></div>
  </div>
- <div class="hero-img"><img src="hero-its.jpg" alt="Ordinateur portable affichant la plateforme ITS : formation, automatisation & IA, CRM sur mesure et assistance IT" width="882" height="490" fetchpriority="high"></div>
-</div></section>
+ </div>
+ <div class="hero-mobile-img"><img src="hero-its.jpg" alt="Ordinateur portable affichant la plateforme ITS : formation, automatisation & IA, CRM sur mesure et assistance IT" width="882" height="490" loading="lazy"></div>
+</section>
 
-<section aria-label="Nos domaines"><div class="container services4">{svc_html}</div></section>
+''' + f'''<section aria-label="Nos domaines"><div class="container services4">{svc_html}</div></section>
 <section aria-label="Nos atouts"><div class="container perks">{perks_html}</div></section>
 
 <section class="section alt"><div class="container">
  <div class="head center"><div class="eyebrow">Pour qui ?</div><h2>Des solutions adaptées à chaque structure</h2><p>Que vous soyez une PME, un indépendant ou un organisme de formation, nous construisons avec vous la réponse adaptée à vos enjeux.</p></div>
  <div class="grid3">
-  <div class="card"><div class="badge">{ic("users")}</div><h3>Entreprises & indépendants</h3><p>Montée en compétences des équipes, outils de gestion sur mesure et automatisation des tâches répétitives.</p>{checks(["Formation intra-entreprise","CRM, devis et facturation","Automatisations et agents IA"])}</div>
-  <div class="card"><div class="badge">{ic("building")}</div><h3>Organismes de formation</h3><p>Intervention de formateurs experts et outils pour digitaliser la gestion de vos sessions.</p>{checks(["Animation de modules IA et numérique","Supports et parcours e-learning","Outils de suivi des apprenants"])}</div>
-  <div class="card"><div class="badge">{ic("monitor")}</div><h3>Particuliers</h3><p>Un accompagnement simple et rassurant pour votre informatique du quotidien.</p>{checks(["Dépannage et installation","Initiation à l’IA et au numérique","Assistance à distance"])}</div>
+  <div class="card t-blue"><div class="badge">{ic("users")}</div><h3>Entreprises & indépendants</h3><p>Montée en compétences des équipes, outils de gestion sur mesure et automatisation des tâches répétitives.</p>{checks(["Formation intra-entreprise","CRM, devis et facturation","Automatisations et agents IA"])}</div>
+  <div class="card t-violet"><div class="badge">{ic("building")}</div><h3>Organismes de formation</h3><p>Intervention de formateurs experts et outils pour digitaliser la gestion de vos sessions.</p>{checks(["Animation de modules IA et numérique","Supports et parcours e-learning","Outils de suivi des apprenants"])}</div>
+  <div class="card t-orange"><div class="badge">{ic("monitor")}</div><h3>Particuliers</h3><p>Un accompagnement simple et rassurant pour votre informatique du quotidien.</p>{checks(["Dépannage et installation","Initiation à l’IA et au numérique","Assistance à distance"])}</div>
  </div>
 </div></section>
 
 <section class="section"><div class="container split">
  <div class="why">
   <div class="card"><div class="badge">{ic("cap")}</div><h3>Pédagogie</h3><p>Organisme de formation déclaré, nous rendons vos équipes autonomes.</p></div>
-  <div class="card"><div class="badge" style="background:var(--violet-l);color:var(--violet)">{ic("zap")}</div><h3>Technique</h3><p>Automatisations, IA et CRM conçus et mis en production par nos soins.</p></div>
+  <div class="card t-violet"><div class="badge">{ic("zap")}</div><h3>Technique</h3><p>Automatisations, IA et CRM conçus et mis en production par nos soins.</p></div>
   <div class="card"><div class="badge" style="background:var(--green-l);color:var(--green)">{ic("handshake")}</div><h3>Proximité</h3><p>Un interlocuteur unique qui explique sans jargon.</p></div>
-  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)">{ic("headset")}</div><h3>Suivi</h3><p>Assistance et évolutions après la mise en service.</p></div>
+  <div class="card t-orange"><div class="badge">{ic("headset")}</div><h3>Suivi</h3><p>Assistance et évolutions après la mise en service.</p></div>
  </div>
  <div>
   <div class="eyebrow">Pourquoi ITS</div>
@@ -283,10 +286,10 @@ solutions = page_hero("Solutions", "Nos solutions", "Automatisation, IA et CRM s
   <div class="actions"><a class="btn btn-blue" href="contact.html?besoin=Automatisation%20%26%20IA">Automatiser un processus {ic("arrow")}</a></div>
  </div>
  <div class="grid2">
-  <div class="card"><div class="badge" style="background:var(--violet-l);color:var(--violet)">{ic("bot")}</div><h3>Agents IA</h3><p>Des assistants qui traitent emails, demandes et documents.</p></div>
-  <div class="card"><div class="badge" style="background:var(--violet-l);color:var(--violet)">{ic("zap")}</div><h3>Workflows</h3><p>Vos outils se parlent et les tâches s’enchaînent seules.</p></div>
-  <div class="card"><div class="badge" style="background:var(--violet-l);color:var(--violet)">{ic("mail")}</div><h3>Emails & relances</h3><p>Réponses préparées, relances et suivis automatiques.</p></div>
-  <div class="card"><div class="badge" style="background:var(--violet-l);color:var(--violet)">{ic("chart")}</div><h3>Rapports</h3><p>Tableaux de bord générés et envoyés automatiquement.</p></div>
+  <div class="card t-violet"><div class="badge">{ic("bot")}</div><h3>Agents IA</h3><p>Des assistants qui traitent emails, demandes et documents.</p></div>
+  <div class="card t-violet"><div class="badge">{ic("zap")}</div><h3>Workflows</h3><p>Vos outils se parlent et les tâches s’enchaînent seules.</p></div>
+  <div class="card t-violet"><div class="badge">{ic("mail")}</div><h3>Emails & relances</h3><p>Réponses préparées, relances et suivis automatiques.</p></div>
+  <div class="card t-violet"><div class="badge">{ic("chart")}</div><h3>Rapports</h3><p>Tableaux de bord générés et envoyés automatiquement.</p></div>
  </div>
 </div></section>
 <section class="section alt" id="crm"><div class="container split rev">
@@ -304,9 +307,9 @@ solutions = page_hero("Solutions", "Nos solutions", "Automatisation, IA et CRM s
 <section class="section" id="web"><div class="container">
  <div class="head"><div class="eyebrow">Sites web & outils</div><h2>Une présence en ligne qui génère des contacts</h2><p>Sites vitrines rapides, responsives et optimisés pour le référencement, connectés à vos outils.</p></div>
  <div class="grid3">
-  <div class="card"><div class="badge">{ic("globe")}</div><h3>Sites vitrines</h3><p>Un site professionnel, rapide et lisible sur mobile, pensé pour la prise de contact.</p></div>
-  <div class="card"><div class="badge">{ic("target")}</div><h3>Référencement local</h3><p>Une structure et des contenus optimisés pour être trouvé par vos clients.</p></div>
-  <div class="card"><div class="badge">{ic("lock")}</div><h3>Espaces clients</h3><p>Formulaires, prises de rendez-vous et accès sécurisés reliés à votre CRM.</p></div>
+  <div class="card t-blue"><div class="badge">{ic("globe")}</div><h3>Sites vitrines</h3><p>Un site professionnel, rapide et lisible sur mobile, pensé pour la prise de contact.</p></div>
+  <div class="card t-green"><div class="badge">{ic("target")}</div><h3>Référencement local</h3><p>Une structure et des contenus optimisés pour être trouvé par vos clients.</p></div>
+  <div class="card t-violet"><div class="badge">{ic("lock")}</div><h3>Espaces clients</h3><p>Formulaires, prises de rendez-vous et accès sécurisés reliés à votre CRM.</p></div>
  </div>
 </div></section>
 {cta("Un processus à automatiser ou un outil à créer ?", "Décrivez-nous votre besoin : nous vous proposons une solution adaptée et chiffrée.", "Automatisation%20%26%20IA")}'''
@@ -319,12 +322,12 @@ services = page_hero("Services", "Assistance informatique", "Une informatique qu
 <section class="section"><div class="container">
  <div class="head"><div class="eyebrow">Nos interventions</div><h2>Assistance informatique complète</h2><p>Sur site ou à distance, nous intervenons rapidement et vous expliquons simplement ce qui a été fait.</p></div>
  <div class="grid3">
-  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)">{ic("wrench")}</div><h3>Dépannage</h3><p>Ordinateur lent, panne, virus, écran bleu : diagnostic et réparation.</p>{checks(["Diagnostic complet","Suppression de virus","Récupération de données"])}</div>
-  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)">{ic("download")}</div><h3>Installation & configuration</h3><p>Postes, logiciels, imprimantes et messagerie prêts à l’emploi.</p>{checks(["Mise en service PC / Mac","Installation de logiciels","Messagerie et Microsoft 365"])}</div>
-  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)">{ic("wifi")}</div><h3>Réseau & Internet</h3><p>Box, Wi-Fi, partage de fichiers et accès à distance fiables.</p>{checks(["Configuration Wi-Fi","Partage et NAS","Accès à distance sécurisé"])}</div>
-  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)">{ic("shield")}</div><h3>Sécurité & sauvegarde</h3><p>Protégez vos données et vos postes contre les pertes et les attaques.</p>{checks(["Sauvegardes automatiques","Antivirus et mises à jour","Bonnes pratiques de sécurité"])}</div>
-  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)">{ic("gear")}</div><h3>Maintenance</h3><p>Un suivi régulier pour éviter les pannes plutôt que les subir.</p>{checks(["Mises à jour planifiées","Contrôle de l’état des postes","Conseils d’équipement"])}</div>
-  <div class="card"><div class="badge" style="background:var(--orange-l);color:var(--orange)">{ic("headset")}</div><h3>Assistance à distance</h3><p>Une intervention rapide sur votre poste, sans déplacement.</p>{checks(["Connexion sécurisée","Intervention rapide","Explications pas à pas"])}</div>
+  <div class="card t-orange"><div class="badge">{ic("wrench")}</div><h3>Dépannage</h3><p>Ordinateur lent, panne, virus, écran bleu : diagnostic et réparation.</p>{checks(["Diagnostic complet","Suppression de virus","Récupération de données"])}</div>
+  <div class="card t-orange"><div class="badge">{ic("download")}</div><h3>Installation & configuration</h3><p>Postes, logiciels, imprimantes et messagerie prêts à l’emploi.</p>{checks(["Mise en service PC / Mac","Installation de logiciels","Messagerie et Microsoft 365"])}</div>
+  <div class="card t-orange"><div class="badge">{ic("wifi")}</div><h3>Réseau & Internet</h3><p>Box, Wi-Fi, partage de fichiers et accès à distance fiables.</p>{checks(["Configuration Wi-Fi","Partage et NAS","Accès à distance sécurisé"])}</div>
+  <div class="card t-orange"><div class="badge">{ic("shield")}</div><h3>Sécurité & sauvegarde</h3><p>Protégez vos données et vos postes contre les pertes et les attaques.</p>{checks(["Sauvegardes automatiques","Antivirus et mises à jour","Bonnes pratiques de sécurité"])}</div>
+  <div class="card t-orange"><div class="badge">{ic("gear")}</div><h3>Maintenance</h3><p>Un suivi régulier pour éviter les pannes plutôt que les subir.</p>{checks(["Mises à jour planifiées","Contrôle de l’état des postes","Conseils d’équipement"])}</div>
+  <div class="card t-orange"><div class="badge">{ic("headset")}</div><h3>Assistance à distance</h3><p>Une intervention rapide sur votre poste, sans déplacement.</p>{checks(["Connexion sécurisée","Intervention rapide","Explications pas à pas"])}</div>
  </div>
 </div></section>
 <section class="section alt"><div class="container">
@@ -355,10 +358,10 @@ apropos = page_hero("À propos", "Qui sommes-nous", "Le numérique au service de
 <section class="section alt"><div class="container">
  <div class="head center"><div class="eyebrow">Nos valeurs</div><h2>Ce qui guide notre travail</h2></div>
  <div class="grid4">
-  <div class="card"><div class="badge">{ic("target")}</div><h3>Pragmatisme</h3><p>Des solutions utiles, adaptées à votre réalité et à votre budget.</p></div>
-  <div class="card"><div class="badge">{ic("handshake")}</div><h3>Proximité</h3><p>Un interlocuteur disponible, qui explique sans jargon.</p></div>
-  <div class="card"><div class="badge">{ic("cap")}</div><h3>Transmission</h3><p>Nous rendons vos équipes autonomes sur leurs outils.</p></div>
-  <div class="card"><div class="badge">{ic("lock")}</div><h3>Confiance</h3><p>Confidentialité de vos données et respect du RGPD.</p></div>
+  <div class="card t-blue"><div class="badge">{ic("target")}</div><h3>Pragmatisme</h3><p>Des solutions utiles, adaptées à votre réalité et à votre budget.</p></div>
+  <div class="card t-violet"><div class="badge">{ic("handshake")}</div><h3>Proximité</h3><p>Un interlocuteur disponible, qui explique sans jargon.</p></div>
+  <div class="card t-green"><div class="badge">{ic("cap")}</div><h3>Transmission</h3><p>Nous rendons vos équipes autonomes sur leurs outils.</p></div>
+  <div class="card t-orange"><div class="badge">{ic("lock")}</div><h3>Confiance</h3><p>Confidentialité de vos données et respect du RGPD.</p></div>
  </div>
 </div></section>
 <section aria-label="Nos atouts" style="padding-top:60px"><div class="container perks">{perks_html}</div></section>
